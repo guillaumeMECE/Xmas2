@@ -2,6 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Christmas</title>
@@ -21,7 +22,7 @@
 
 <body>
    <h1>Christmas Quiz</h1>
-      <h4 id="subtitle">Can you answer these questions about Christmas in Britain ? </h4>
+   <h4 id="subtitle">Can you answer these questions about Christmas in Britain ? </h4>
    <div class="responsiveDiv">
       <div class="left">
          <img class="imglr" src="lib\santa.png" alt=santa />
@@ -35,18 +36,22 @@
       <div class="main">
          <div class="card" id="cardqcm">
             <div class="container">
-               <form name="form_xmas">
-                  <p><b>1.</b> Father Christmas and Santa Claus are two names for the man who bring children's presents at Christmas.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q1" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q1" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ1" style="font-size: 2vw;color:green;"></i>
-                  <p><b>2.</b> The day before Christmas Day is called boxing Day.</p>
+               <form name="form_xmas" id="mainForm">
+                  <div id="questionContainer">
+                     <p><b>1.</b> Father Christmas and Santa Claus are two names for the man who bring children's presents at Christmas.</p>
+                     <label class="containerRadio" id="QT1">True
+                        <input type="radio" name="Q1" value="1">
+                        <span class="checkmark"></span>
+                     </label>
+                     <label class="containerRadio" id="QF1">False
+                        <input type="radio" name="Q1" value="0">
+                        <span class="checkmark"></span>
+                     </label>
+                     <i class="material-icons" id="icoQ1" style="font-size: 2vw;color:green;"></i>
+                  </div>
+
+
+                  <!--p><b>2.</b> The day before Christmas Day is called boxing Day.</p>
                   <label class="containerRadio">True
                      <input type="radio" name="Q2" value="0">
                      <span class="checkmark"></span>
@@ -135,9 +140,9 @@
                      <input type="radio" name="Q10" value="0">
                      <span class="checkmark"></span>
                   </label>
-                  <i class="material-icons" id="icoQ10" style="font-size: 2vw;color:green;"></i>
+                  <i class="material-icons" id="icoQ10" style="font-size: 2vw;color:green;"></i-->
                   <br>
-                  <input type="button" class="button button1" name="btnvalid" value="Validation" onclick="calcul();">
+                  <input type="button" class="button button1" id="btn1" name="btnvalid" value="Validation" onclick="calcul();">
                </form>
             </div>
          </div>
