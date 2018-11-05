@@ -1,0 +1,49 @@
+
+.responsiveDiv{
+   margin-top: 0em;
+   width: 100%;
+   /*margin-top: 6em;*/
+}
+
+/* Left Div for responsive design */
+.left {
+   background-color: #d32f2f;
+   padding: 20px;
+   float: left;
+   width: 20%;
+}
+
+/* Main Div for responsive design */
+.main {
+   background-color: #d32f2f;
+   padding: 20px;
+   float: left;
+   width: 60%;
+}
+
+/* Right Div for responsive design */
+.right {
+   background-color: #d32f2f;
+   padding: 20px;
+   float: right;
+   width: 20%;
+}
+
+/* Responsive div adaptation depend of the screen size */
+@media screen and (max-width:800px) {
+   .left, .main, .right {
+      width: 100%;
+      /* one div one line instead of 3 div 1 line */
+   }
+
+   .imglr {
+      width: 100%;
+      max-width: 13%;
+      /* all images in the same line */
+      height: auto;
+   }
+
+   .sticky + .responsiveDiv {
+     padding-top: 4em;
+   }
+}

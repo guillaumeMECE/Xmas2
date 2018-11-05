@@ -1,0 +1,121 @@
+/* First title */
+h1 {
+   color: white;
+   text-align: center;
+   font-size: 6vw;
+   font-family: 'Roboto', sans-serif;
+}
+
+/* Questions txt format */
+p {
+   font-size: 2vw;
+   font-family: 'Roboto', sans-serif;
+   text-align: justify;
+}
+
+#subtitle {
+   overflow: hidden;
+   background-color: #9a0007;
+   color: white;
+   text-align: center;
+   padding-top: 0.5em;
+   padding-bottom: 0.5em;
+   font-size: 3vw;
+   font-family: 'Roboto', sans-serif;
+   box-shadow: 0 0.2em 0.6em 0 rgba(0, 0, 0, 0.2);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  margin: 0em;
+  width: 100%;
+  z-index: 2;
+}
+
+.sticky + .responsiveDiv {
+  padding-top: 8em;
+}
+
+/* n° of Questions */
+b {
+   font-size: 2.3vw;
+   margin-right: 1em;
+   font-family: 'Roboto', sans-serif;
+}
+
+/* turn off blue border when focus */
+.button:focus {
+   outline: 0 !important;
+}
+
+/* General button class */
+.button {
+   background-color: #4CAF50;
+   /* Green */
+   border: none;
+   border-radius: 2em;/*pill shape*/
+   color: white;
+   padding: 0.4em 0.8em;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 1.5vw;
+   margin: 0.5em 0.2em;
+   -webkit-transition-duration: 0.4s;
+   /* Safari */
+   transition-duration: 0.4s;
+   cursor: pointer;
+   font-family: 'Roboto', sans-serif;
+}
+
+/* Specific class for Validation button */
+.button1 {
+   margin: 2.5em;
+   background-color: white;
+   color: #4CAF50;
+   border: 0.12em solid #4CAF50;
+}
+
+/* action when button hover */
+.button1:hover {
+   background-color: #4CAF50;
+   color: white;
+}
+
+/* class for all image caracteristics */
+.imglr {
+   width: 100%;
+   max-width: 100%;
+   height: auto;
+}
+
+/* General caracs for responsive div (left/main/right) */
+* {
+   box-sizing: border-box;
+}
+
+body {
+   background-color: #d32f2f;
+   margin: 0em;
+   /* turn off natural margin */
+}
+
+/* the txt result in shape of a card */
+#cardresult {
+   visibility: hidden;
+}
+
+/* General class for card */
+.card {
+   /* Add shadows to create the "card" effect */
+   box-shadow: 0 0.2em 0.6em 0 rgba(0, 0, 0, 0.2);
+   transition: 0.3s;
+   background-color: white;
+   margin: 1.3em;
+}
+
+/* padding inside the card container */
+.container {
+   padding: 0.8em 1.5em;
+}
