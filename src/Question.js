@@ -44,12 +44,16 @@ class TabQuestion {
    }
 
    getTxtIndex(id) {
-      return this.tab[id-1].getTxt();
+      return this.tab[id - 1].getTxt();
    }
    getTrueIndex(id) {
-      return this.tab[id-1].getTrue();
+      return this.tab[id - 1].getTrue();
    }
    getFalseIndex(id) {
-      return this.tab[id-1].getFalse();
+      return this.tab[id - 1].getFalse();
    }
+   getLenght() {
+      return this.tab.length;
+   }
+
 }

@@ -1,48 +1,55 @@
-var numQuestion = 1;//to know wich question we are
+var numQuestion = 1; //to know wich question we are
 $(document).ready(function() {
    //init of tab question
-   let tabQ = new TabQuestion();
-   tabQ.initTabQ();
-
+   let tabQ = new TabQuestion(); //creation of the class
+   tabQ.initTabQ(); //call fction to initiate
 
    //add question
    $("#btn1").click(function() {
-      numQuestion++;
-      $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
+      if (numQuestion < tabQ.getLenght()) {
+         numQuestion++;
+         $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
 
-      //True
-      $("<label></label>", {
-         "class": "containerRadio",
-         "id" : String("QT" + numQuestion)
-      }).appendTo("#questionContainer");
-      $( String("#QT" + numQuestion)).append("True");
-      $("<input></input>", {
-         "type": "radio",
-         "name" :  String("Q" + numQuestion),
-         "value" : tabQ.getTrueIndex(numQuestion) //"0"
-      }).appendTo( String("#QT" + numQuestion));
-      $("<span></span>", {
-         "class": "checkmark"
-      }).appendTo( String("#QT" + numQuestion));
+         //True
+         $("<label></label>", {
+            "class": "containerRadio",
+            "id": String("QT" + numQuestion)
+         }).appendTo("#questionContainer");
+         $(String("#QT" + numQuestion)).append("True");
+         $("<input></input>", {
+            "type": "radio",
+            "name": String("Q" + numQuestion),
+            "value": tabQ.getTrueIndex(numQuestion) //"0"
+         }).appendTo(String("#QT" + numQuestion));
+         $("<span></span>", {
+            "class": "checkmark"
+         }).appendTo(String("#QT" + numQuestion));
 
-      //False
-      $("<label></label>", {
-         "class": "containerRadio",
-         "id" :  String("QF" + numQuestion)
-      }).appendTo("#questionContainer");
-      $( String("#QF" + numQuestion)).append("False");
-      $("<input></input>", {
-         "type": "radio",
-         "name" : String("Q" + numQuestion),
-         "value" : tabQ.getFalseIndex(numQuestion) // "1"
-      }).appendTo( String("#QF" + numQuestion));
-      $("<span></span>", {
-         "class": "checkmark"
-      }).appendTo( String("#QF" + numQuestion));
-      $("<i></i>", {
-         "class": "material-icons",
-         "id" :  String("icoQ" + numQuestion)
-      }).appendTo("#questionContainer").css({"font-size": "2vw", "color": "green"});
+         //False
+         $("<label></label>", {
+            "class": "containerRadio",
+            "id": String("QF" + numQuestion)
+         }).appendTo("#questionContainer");
+         $(String("#QF" + numQuestion)).append("False");
+         $("<input></input>", {
+            "type": "radio",
+            "name": String("Q" + numQuestion),
+            "value": tabQ.getFalseIndex(numQuestion) // "1"
+         }).appendTo(String("#QF" + numQuestion));
+         $("<span></span>", {
+            "class": "checkmark"
+         }).appendTo(String("#QF" + numQuestion));
+         $("<i></i>", {
+            "class": "material-icons",
+            "id": String("icoQ" + numQuestion)
+         }).appendTo("#questionContainer").css({
+            "font-size": "2vw",
+            "color": "green"
+         });
+      } else {
+         console.log("END");
+         calcul();
+      }
    });
 });
 
