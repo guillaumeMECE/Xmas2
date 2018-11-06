@@ -70,32 +70,26 @@ function calcul() {
       document.getElementById("txtresult").innerHTML = "You have " + point + " good answers and " + (nbrQ - point) + " wrong answers";
       document.getElementById('cardresult').style.visibility = 'visible';
 
-      //pie print
+      //pie charts print
       var options = {
          title: {
             text: ""
          },
-         /*title: {
-         	text: "QCM Result"
-         },*/
          data: [{
-            type: "pie",
-            startAngle: 45,
-            showInLegend: "false",
-            legendText: "{label}",
-            indexLabel: "{label} : {y}",
-            yValueFormatString: "#,##0.#" % "",
-            dataPoints: [{
+               type: "pie",
+               startAngle: 45,
+               showInLegend: "false",
+               legendText: "{label}",
+               indexLabel: "{label} : {y}",
+               yValueFormatString: "#,##0.#" % "",
+               dataPoints: [{
                   label: "Correct",
-                  y: point
-               }, // (point*100/nbrQ) },
-               {
-                  label: "Wrong",
-                  y: (nbrQ - point)
-               } //((nbrQ - point)*100/nbrQ) }
-            ]
-         }]
-      };
-      $("#chartContainer").CanvasJSChart(options);
-   }
-}
+                  y: point {
+                     label: "Wrong",
+                     y: (nbrQ - point)
+                  ]
+               }]
+            };
+            $("#chartContainer").CanvasJSChart(options);
+         }
+      }
