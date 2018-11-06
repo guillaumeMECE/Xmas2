@@ -1,3 +1,68 @@
+class CreateQuestion {
+   constructor() {
+
+   }
+
+   add(numQuestion, tabQ) {
+      $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
+
+      //True
+      $("<label></label>", {
+         "class": "containerRadio",
+         "id": String("QT" + numQuestion)
+      }).appendTo("#questionContainer");
+      $(String("#QT" + numQuestion)).append("True");
+      $("<input></input>", {
+         "type": "radio",
+         "name": String("Q" + numQuestion),
+         "value": tabQ.getTrueIndex(numQuestion) //"0"
+      }).appendTo(String("#QT" + numQuestion));
+      $("<span></span>", {
+         "class": "checkmark"
+      }).appendTo(String("#QT" + numQuestion));
+
+      //False
+      $("<label></label>", {
+         "class": "containerRadio",
+         "id": String("QF" + numQuestion)
+      }).appendTo("#questionContainer");
+      $(String("#QF" + numQuestion)).append("False");
+      $("<input></input>", {
+         "type": "radio",
+         "name": String("Q" + numQuestion),
+         "value": tabQ.getFalseIndex(numQuestion) // "1"
+      }).appendTo(String("#QF" + numQuestion));
+      $("<span></span>", {
+         "class": "checkmark"
+      }).appendTo(String("#QF" + numQuestion));
+      $("<i></i>", {
+         "class": "material-icons",
+         "id": String("icoQ" + numQuestion)
+      }).appendTo("#questionContainer").css({
+         "font-size": "2vw",
+         "color": "green"
+      });
+   }
+
+   tstOneCheck(n) {
+      var nom = new Array();
+      nom = document.getElementsByName("Q" + n);
+      var nomLength = nom.length;
+      var radioIsNotCheck = 0; // radiobtn is check if 2 then no if 0 both
+      for (var q = 0; q <= (nomLength - 1); q++) {
+         if (nom[q].checked != 1) {
+            radioIsNotCheck++;
+         }
+      }
+      if (radioIsNotCheck == 2 || radioIsNotCheck == 0) {
+         return false;
+      } else {
+         return true;
+      }
+   }
+
+}
+
 class QuestionClass {
    constructor(txt, answer) {
       this.txt = txt; //txt of the question

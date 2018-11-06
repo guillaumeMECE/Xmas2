@@ -1,55 +1,28 @@
-var numQuestion = 1; //to know wich question we are
 $(document).ready(function() {
+   var numQuestion = 1; //to know wich question we are
    //init of tab question
    let tabQ = new TabQuestion(); //creation of the class
    tabQ.initTabQ(); //call fction to initiate
+   let gestQCM = new CreateQuestion();
 
    //add question
    $("#btn1").click(function() {
-      if (numQuestion < tabQ.getLenght()) {
-         numQuestion++;
-         $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
 
-         //True
-         $("<label></label>", {
-            "class": "containerRadio",
-            "id": String("QT" + numQuestion)
-         }).appendTo("#questionContainer");
-         $(String("#QT" + numQuestion)).append("True");
-         $("<input></input>", {
-            "type": "radio",
-            "name": String("Q" + numQuestion),
-            "value": tabQ.getTrueIndex(numQuestion) //"0"
-         }).appendTo(String("#QT" + numQuestion));
-         $("<span></span>", {
-            "class": "checkmark"
-         }).appendTo(String("#QT" + numQuestion));
-
-         //False
-         $("<label></label>", {
-            "class": "containerRadio",
-            "id": String("QF" + numQuestion)
-         }).appendTo("#questionContainer");
-         $(String("#QF" + numQuestion)).append("False");
-         $("<input></input>", {
-            "type": "radio",
-            "name": String("Q" + numQuestion),
-            "value": tabQ.getFalseIndex(numQuestion) // "1"
-         }).appendTo(String("#QF" + numQuestion));
-         $("<span></span>", {
-            "class": "checkmark"
-         }).appendTo(String("#QF" + numQuestion));
-         $("<i></i>", {
-            "class": "material-icons",
-            "id": String("icoQ" + numQuestion)
-         }).appendTo("#questionContainer").css({
-            "font-size": "2vw",
-            "color": "green"
-         });
+      if (gestQCM.tstOneCheck(numQuestion)) {
+         if (numQuestion < tabQ.getLenght()) {
+            numQuestion++;
+            gestQCM.add(numQuestion, tabQ); //add in jquery a new question
+            if (numQuestion == tabQ.getLenght()) { //change next btn to validation one
+               $("#btn1").val("Validation");
+            }
+         } else {
+            //console.log("END");
+            calcul();
+         }
       } else {
-         console.log("END");
-         calcul();
+         alert("You have to check an answer !");
       }
+
    });
 });
 
@@ -64,7 +37,7 @@ function calcul() {
       nom[n] = document.getElementsByName("Q" + n);
       nomLength[n] = nom[n].length;
       pointavant = point;
-      rischeck = 0;
+      rischeck = 0; // radiobtn is check if 2 then no if 0 both
       for (q = 0; q <= (nomLength[n] - 1); q++) {
          if (nom[n][q].checked == 1) {
             point = point + eval(nom[n][q].value);
