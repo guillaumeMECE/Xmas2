@@ -70,5 +70,26 @@ function calcul() {
       document.getElementById("txtresult").innerHTML = "You have " + point + " good answers and " + (nbrQ - point) + " wrong answers";
       document.getElementById('cardresult').style.visibility = 'visible';
 
-   }
-}
+      //pie charts print
+      var options = {
+         title: {
+            text: ""
+         },
+         data: [{
+               type: "pie",
+               startAngle: 45,
+               showInLegend: "false",
+               legendText: "{label}",
+               indexLabel: "{label} : {y}",
+               yValueFormatString: "#,##0.#" % "",
+               dataPoints: [{
+                  label: "Correct",
+                  y: point {
+                     label: "Wrong",
+                     y: (nbrQ - point)
+                  ]
+               }]
+            };
+            $("#chartContainer").CanvasJSChart(options);
+         }
+      }

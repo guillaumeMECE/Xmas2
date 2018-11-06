@@ -3,6 +3,7 @@
 
 <head>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Christmas</title>
@@ -49,98 +50,6 @@
                      </label>
                      <i class="material-icons" id="icoQ1" style="font-size: 2vw;color:green;"></i>
                   </div>
-
-
-                  <!--p><b>2.</b> The day before Christmas Day is called boxing Day.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q2" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q2" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ2" style="font-size: 2vw;color:green;"></i>
-                  <p><b>3.</b> Families have a Christmas tree at Christmas time. It's a small pine tree. They put lights and decorations on it.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q3" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q3" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ3" style="font-size: 2vw;color:green;"></i>
-                  <p><b>4.</b> Father Christmas brings children their presents at night. In the morning. On Christmas day, they see presents in a stocking at the bottom of their bed.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q4" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q4" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ4" style="font-size: 2vw;color:green;"></i>
-                  <p><b>5.</b> Father Christmas is the children's father, uncle or grandfather. He wears a red and white costume.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q5" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q5" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ5" style="font-size: 2vw;color:green;"></i>
-                  <p><b>6.</b> At noon families have a big Christmas dinner. This is usually turkey, roast potatoes and vegetables. After the dinner they have Christmas pudding.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q6" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q6" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ6" style="font-size: 2vw;color:green;"></i>
-                  <p><b>7.</b> Christmas pudding is a dark and heavy fruit cake. You eat it hot with cream.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q7" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q7" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ7" style="font-size: 2vw;color:green;"></i>
-                  <p><b>8.</b> Some people put a silver coin in the pudding. The person who find it has bad luck.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q8" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q8" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ8" style="font-size: 2vw;color:green;"></i>
-                  <p><b>9.</b> In the evening, on Christmas Day, people eat Christmas cake.This is dark, rich fruit cake with a white sugary 'coat' around it.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q9" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q9" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ9" style="font-size: 2vw;color:green;"></i>
-                  <p><b>10.</b> In the afternoon of Christmas Day, the Queen makes a speech on television.</p>
-                  <label class="containerRadio">True
-                     <input type="radio" name="Q10" value="1">
-                     <span class="checkmark"></span>
-                  </label>
-                  <label class="containerRadio">False
-                     <input type="radio" name="Q10" value="0">
-                     <span class="checkmark"></span>
-                  </label>
-                  <i class="material-icons" id="icoQ10" style="font-size: 2vw;color:green;"></i-->
                   <br>
                   <input type="button" class="button button1" id="btn1" name="btnvalid" value="Next">
                   <!--input type="button" class="button button1" id="btn1" name="btnvalid" value="Next" onclick="calcul();"-->
@@ -152,6 +61,7 @@
                <h4><b>Result</b></h4>
                <p id="txtresult"></p>
             </div>
+            <div id="chartContainer" style="height: 300px; width: 100%;"></div>
          </div>
       </div>
       <div class="right">
