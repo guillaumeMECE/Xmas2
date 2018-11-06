@@ -22,7 +22,6 @@ $(document).ready(function() {
       } else {
          alert("You have to check an answer !");
       }
-
    });
 });
 
