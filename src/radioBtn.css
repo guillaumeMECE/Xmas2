@@ -13,7 +13,6 @@
    -ms-user-select: none;
    user-select: none;
 }
-
 /* Hide the browser's default radio button */
 .containerRadio input {
    position: relative;
