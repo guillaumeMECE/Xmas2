@@ -15,7 +15,9 @@ $(document).ready(function() {
             if (numQuestion == tabQ.getLenght()) { //change next btn to validation one
                $("#btn1").val("Validation");
             }
-            window.scrollBy(0, 150);
+            $(String('#QT'+numQuestion)).animatescroll({padding:300});
+            //$('#questionContainer').animatescroll();
+         //   window.scrollBy(0, 150);
          } else {
             //console.log("END");
             calcul();
