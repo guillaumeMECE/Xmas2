@@ -3,6 +3,7 @@ class CreateQuestion {
 
    }
 
+
    add(numQuestion, tabQ) {
       $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
 

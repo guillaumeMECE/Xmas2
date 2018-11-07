@@ -15,6 +15,7 @@ $(document).ready(function() {
             if (numQuestion == tabQ.getLenght()) { //change next btn to validation one
                $("#btn1").val("Validation");
             }
+            window.scrollBy(0, 150);
          } else {
             //console.log("END");
             calcul();
@@ -76,20 +77,23 @@ function calcul() {
             text: ""
          },
          data: [{
-               type: "pie",
-               startAngle: 45,
-               showInLegend: "false",
-               legendText: "{label}",
-               indexLabel: "{label} : {y}",
-               yValueFormatString: "#,##0.#" % "",
-               dataPoints: [{
+            type: "pie",
+            startAngle: 45,
+            showInLegend: "false",
+            legendText: "{label}",
+            indexLabel: "{label} : {y}",
+            yValueFormatString: "#,##0.#" % "",
+            dataPoints: [{
                   label: "Correct",
-                  y: point {
-                     label: "Wrong",
-                     y: (nbrQ - point)
-                  ]
-               }]
-            };
-            $("#chartContainer").CanvasJSChart(options);
-         }
-      }
+                  y: point
+               },
+               {
+                  label: "Wrong",
+                  y: (nbrQ - point)
+               }
+            ]
+         }]
+      };
+      $("#chartContainer").CanvasJSChart(options);
+   }
+}
