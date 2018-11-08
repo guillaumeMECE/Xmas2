@@ -1,5 +1,4 @@
-
-.responsiveDiv{
+.responsiveDiv {
    margin-top: 0em;
    width: 100%;
    /*margin-top: 6em;*/
@@ -43,7 +42,7 @@
       height: auto;
    }
 
-   .sticky + .responsiveDiv {
-     padding-top: 4em;
+   .sticky+.responsiveDiv {
+      padding-top: 4em;
    }
 }

@@ -17,10 +17,14 @@ $(document).ready(function() {
                $("#btn1").val("Validation"); //change txt from next to validation if it's last question
 
             }
-            $(String('#QT'+numQuestion)).animatescroll({padding:300});// auto scroll to the next question (jquery plugin)
+            $(String('#QT' + numQuestion)).animatescroll({
+               padding: 300
+            }); // auto scroll to the next question (jquery plugin)
          } else {
             calcul(); //calculate results
-            $(String('#chartContainer')).animatescroll({padding:300}); // auto scroll to result card
+            $(String('#chartContainer')).animatescroll({
+               padding: 300
+            }); // auto scroll to result card
          }
       } else {
          alert("You have to check an answer !"); // alert to check an answer to the user
