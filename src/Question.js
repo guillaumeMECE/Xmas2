@@ -3,11 +3,10 @@ class CreateQuestion {
 
    }
 
-
-   add(numQuestion, tabQ) {
+   add(numQuestion, tabQ) { // add a new question
       $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
 
-      //True
+      // True
       $("<label></label>", {
          "class": "containerRadio",
          "id": String("QT" + numQuestion)
@@ -16,13 +15,13 @@ class CreateQuestion {
       $("<input></input>", {
          "type": "radio",
          "name": String("Q" + numQuestion),
-         "value": tabQ.getTrueIndex(numQuestion) //"0"
+         "value": tabQ.getTrueIndex(numQuestion) // "0"
       }).appendTo(String("#QT" + numQuestion));
       $("<span></span>", {
          "class": "checkmark"
       }).appendTo(String("#QT" + numQuestion));
 
-      //False
+      // False
       $("<label></label>", {
          "class": "containerRadio",
          "id": String("QF" + numQuestion)
@@ -45,7 +44,7 @@ class CreateQuestion {
       });
    }
 
-   tstOneCheck(n) {
+   tstOneCheck(n) { // tst if good answer
       var nom = new Array();
       nom = document.getElementsByName("Q" + n);
       var nomLength = nom.length;
@@ -61,13 +60,12 @@ class CreateQuestion {
          return true;
       }
    }
-
 }
 
-class QuestionClass {
+class QuestionClass { // quesion class with the txt and results
    constructor(txt, answer) {
-      this.txt = txt; //txt of the question
-      if (answer == "true") { //0 it's true 1 it's false
+      this.txt = txt; // txt of the question
+      if (answer == "true") { // 0 it's true 1 it's false
          this.true = 1;
          this.false = 0;
       } else if (answer == "false") {
@@ -75,6 +73,8 @@ class QuestionClass {
          this.false = 1;
       }
    }
+
+   // getter
    getTxt() {
       return this.txt;
    }
@@ -88,10 +88,10 @@ class QuestionClass {
 
 class TabQuestion {
    constructor() {
-      this.tab = []; //tab that contains question
+      this.tab = []; // tab that contains question
    }
 
-   initTabQ() { //init of question and answers
+   initTabQ() { // init of question and answers
       this.add("Father Christmas and Santa Claus are two names for the man who bring children's presents at Christmas.", "true");
       this.add("The day before Christmas Day is called boxing Day.", "false");
       this.add("Families have a Christmas tree at Christmas time. It's a small pine tree. They put lights and decorations on it.", "true");
@@ -104,11 +104,12 @@ class TabQuestion {
       this.add("In the afternoon of Christmas Day, the Queen makes a speech on television.", "true");
    }
 
-   add(txt, answer) { //creat class question and push it in the tab
+   add(txt, answer) { // create class question and push it in the tab
       let q = new QuestionClass(txt, answer)
       this.tab.push(q);
    }
 
+   // getter
    getTxtIndex(id) {
       return this.tab[id - 1].getTxt();
    }
@@ -121,5 +122,4 @@ class TabQuestion {
    getLenght() {
       return this.tab.length;
    }
-
 }

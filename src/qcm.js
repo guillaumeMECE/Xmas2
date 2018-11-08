@@ -1,79 +1,76 @@
 $(document).ready(function() {
-   var numQuestion = 1; //to know wich question we are
-   //init of tab question
-   let tabQ = new TabQuestion(); //creation of the class
-   tabQ.initTabQ(); //call fction to initiate
+   var numQuestion = 1; // to know wich question we are
+
+   // init of tab question
+   let tabQ = new TabQuestion(); // creation of the class
+   tabQ.initTabQ(); // call fction to initiate
    let gestQCM = new CreateQuestion();
 
-   //add question
+   // add question
    $("#btn1").click(function() {
 
       if (gestQCM.tstOneCheck(numQuestion)) {
          if (numQuestion < tabQ.getLenght()) {
-            numQuestion++;
-            gestQCM.add(numQuestion, tabQ); //add in jquery a new question
+            numQuestion++; // increment question statut
+            gestQCM.add(numQuestion, tabQ); // add in jquery a new question
             if (numQuestion == tabQ.getLenght()) { //change next btn to validation one
-               $("#btn1").val("Validation");
+               $("#btn1").val("Validation"); //change txt from next to validation if it's last question
+
             }
-            $(String('#QT'+numQuestion)).animatescroll({padding:300});
-            //$('#questionContainer').animatescroll();
-         //   window.scrollBy(0, 150);
+            $(String('#QT'+numQuestion)).animatescroll({padding:300});// auto scroll to the next question (jquery plugin)
          } else {
-            //console.log("END");
-            calcul();
+            calcul(); //calculate results
+            $(String('#chartContainer')).animatescroll({padding:300}); // auto scroll to result card
          }
       } else {
-         alert("You have to check an answer !");
+         alert("You have to check an answer !"); // alert to check an answer to the user
       }
    });
 });
 
 function calcul() {
-   nbrQ = 10; //number of question
-   nom = new Array();
-   nomLength = new Array();
-   point = 0;
-   pointavant = 0;
-   isalert = false;
-   for (n = 1; n < (nbrQ + 1); n++) {
-      nom[n] = document.getElementsByName("Q" + n);
+   nbrQ = 10; // number of question
+   nom = new Array(); // array for questions
+   nomLength = new Array(); // array for true false each question
+   point = 0; // score
+   pointavant = 0; //to know if good answer or bad one
+   isalert = false; // bool to know if everything is check
+   for (n = 1; n < (nbrQ + 1); n++) { // to navigate in every question
+      nom[n] = document.getElementsByName("Q" + n); // get the name of the question
       nomLength[n] = nom[n].length;
       pointavant = point;
       rischeck = 0; // radiobtn is check if 2 then no if 0 both
       for (q = 0; q <= (nomLength[n] - 1); q++) {
-         if (nom[n][q].checked == 1) {
-            point = point + eval(nom[n][q].value);
-         } else {
-            point = point;
-            rischeck++;
+         if (nom[n][q].checked == 1) { // if something is check
+            point = point + eval(nom[n][q].value); // add the value of the check answer 0 or 1
+         } else { // if nothing is check
+            point = point; // point don't move
+            rischeck++; // radiobtn is not check so +1
          }
       }
-      if (pointavant == point) {
+      if (pointavant == point) { // case : wrong answer
          document.getElementById("icoQ" + n).innerHTML = "cancel";
          document.getElementById("icoQ" + n).style.color = 'red';
-      } else {
+      } else { // case good answer
          document.getElementById("icoQ" + n).innerHTML = "check_circle";
          document.getElementById("icoQ" + n).style.color = 'green';
       }
       document.getElementById("icoQ" + n).style.fontSize = "2vw";
-      if (rischeck == 2) {
-         isalert = true;
+      if (rischeck == 2) { // case : nothing is check
+         isalert = true; // tell to do an alert
          document.getElementById("icoQ" + n).innerHTML = "error";
          document.getElementById("icoQ" + n).style.color = 'red';
          document.getElementById("icoQ" + n).style.fontSize = "3vw";
       }
 
    }
-   if (isalert == true) {
+   if (isalert == true) { // alert the user to check all
       alert("You have to check all the boxes !");
-   } else {
-
-      //document.form_xmas.txtNb.value = point;
-      //document.getElementById("icoQ1").innerHTML = "done";
+   } else { // print result in the card result
       document.getElementById("txtresult").innerHTML = "You have " + point + " good answers and " + (nbrQ - point) + " wrong answers";
-      document.getElementById('cardresult').style.visibility = 'visible';
+      $("#cardresult").slideDown();
 
-      //pie charts print
+      //pie charts config
       var options = {
          title: {
             text: ""
@@ -96,6 +93,6 @@ function calcul() {
             ]
          }]
       };
-      $("#chartContainer").CanvasJSChart(options);
+      $("#chartContainer").CanvasJSChart(options); // pie chart print
    }
 }
