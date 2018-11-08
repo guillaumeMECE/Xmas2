@@ -103,7 +103,8 @@ body {
 
 /* the txt result in shape of a card */
 #cardresult {
-   visibility: hidden;
+   /*visibility: hidden;*/
+   display: none;
 }
 
 /* General class for card */
@@ -118,4 +119,9 @@ body {
 /* padding inside the card container */
 .container {
    padding: 0.8em 1.5em;
+}
+
+#questionContainer{ /*contain question txt and radiobtn and the icon*/
+   overflow: auto;
+   text-align: center;
 }
