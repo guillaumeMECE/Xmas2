@@ -72,7 +72,7 @@ function calcul() {
       alert("You have to check all the boxes !");
    } else { // print result in the card result
       document.getElementById("txtresult").innerHTML = "You have " + point + " good answers and " + (nbrQ - point) + " wrong answers";
-      $("#cardresult").slideDown();
+      $("#cardresult").slideDown(); // animation to print results
 
       //pie charts config
       var options = {

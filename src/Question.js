@@ -7,12 +7,12 @@ class CreateQuestion {
       $("#questionContainer").append("<p><b>" + numQuestion + ". </b>" + tabQ.getTxtIndex(numQuestion) + "</p>");
 
       // True
-      $("<label></label>", {
+      $("<label></label>", { // label that contains true radiobtn
          "class": "containerRadio",
          "id": String("QT" + numQuestion)
       }).appendTo("#questionContainer");
       $(String("#QT" + numQuestion)).append("True");
-      $("<input></input>", {
+      $("<input></input>", { // radiobtn
          "type": "radio",
          "name": String("Q" + numQuestion),
          "value": tabQ.getTrueIndex(numQuestion) // "0"
@@ -22,12 +22,12 @@ class CreateQuestion {
       }).appendTo(String("#QT" + numQuestion));
 
       // False
-      $("<label></label>", {
+      $("<label></label>", {  // label that contains true radiobtn
          "class": "containerRadio",
          "id": String("QF" + numQuestion)
       }).appendTo("#questionContainer");
       $(String("#QF" + numQuestion)).append("False");
-      $("<input></input>", {
+      $("<input></input>", { // radiobtn
          "type": "radio",
          "name": String("Q" + numQuestion),
          "value": tabQ.getFalseIndex(numQuestion) // "1"
@@ -35,10 +35,10 @@ class CreateQuestion {
       $("<span></span>", {
          "class": "checkmark"
       }).appendTo(String("#QF" + numQuestion));
-      $("<i></i>", {
+      $("<i></i>", { // icon
          "class": "material-icons",
          "id": String("icoQ" + numQuestion)
-      }).appendTo("#questionContainer").css({
+      }).appendTo("#questionContainer").css({ // css for the icon
          "font-size": "2vw",
          "color": "green"
       });
@@ -54,9 +54,9 @@ class CreateQuestion {
             radioIsNotCheck++;
          }
       }
-      if (radioIsNotCheck == 2 || radioIsNotCheck == 0) {
+      if (radioIsNotCheck == 2 || radioIsNotCheck == 0) { // if no check or both check
          return false;
-      } else {
+      } else { // if radioIsNotCheck = 1 so continue
          return true;
       }
    }
@@ -105,8 +105,8 @@ class TabQuestion {
    }
 
    add(txt, answer) { // create class question and push it in the tab
-      let q = new QuestionClass(txt, answer)
-      this.tab.push(q);
+      let q = new QuestionClass(txt, answer) // create a question
+      this.tab.push(q); // add the question to the tab
    }
 
    // getter
